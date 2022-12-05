@@ -1,16 +1,18 @@
 # Insert your SSID and Your PWD after inital setup
 wifi:
-# networks:
-#    - ssid: 'REPLACEME'          # Enter your WiFi SSID here. Example: `ssid: 'your_network_name'`
-#      password: 'REPLACEME'      # Enter your wifi password here. Example: `password: 'abcde123456'`
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: ${name}
+    ssid: "Ledandbuzzer Fallback Hotspot"
+    password: "NTwTO1UDxNF1"
 
 # Enable the captive portal for inital WiFi setup
 captive_portal:
 
 dashboard_import:
-  package_import_url: github://adonno/ledandbuzzer/ledandbuzzer.yaml
+  package_import_url: github://air-0ne/ledandbuzzer/ledandbuzzer.yaml
 
 improv_serial:
 
@@ -75,8 +77,9 @@ logger:
 
 # Enable Home Assistant API
 api:
-  services:
-  
+  encryption:
+    key: "TGYGkXYD4yQ1hR9V0Hvg2DHIrhLRXUIBskRUZYY7I7Q="
+  services: 
   - service: play_rtttl
     variables:
       song_str: string
@@ -85,7 +88,7 @@ api:
     
 # Enable OTA upgrade
 ota:
-
+  password: "f0ec3689a68f5b2acacec66e256ce38d"
 globals:
   - id: source
     type: std::string
