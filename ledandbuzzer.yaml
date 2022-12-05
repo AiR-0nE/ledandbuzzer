@@ -78,7 +78,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "TGYGkXYD4yQ1hR9V0Hvg2DHIrhLRXUIBskRUZYY7I7Q="
+    key: !secret enc_key_ledandbuzzer
   services: 
   - service: play_rtttl
     variables:
